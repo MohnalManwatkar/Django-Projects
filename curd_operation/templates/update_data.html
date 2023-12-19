@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% include 'cdnlines.html' %}
+</head>
+    <style>
+        input[name]{
+            margin-top: 10px;
+        }
+
+        input[value]{
+            margin-top: 10px;
+        } 
+    </style>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-4 col-md-4">
+                <br>
+                <h3>Fill The Form</h3>
+                <br>
+                <form method="POST" action="{% url 'save_updated_data' emp.id  %}">
+                    {% csrf_token %}
+                    <input type="text" name="emp_id" value="{{emp.Emp_id}}" placeholder="emp_id" class="form-control">
+                    <input type="text" name="fname" value="{{emp.Fname}}" placeholder="First Name..." class="form-control">
+                    <input type="text" name="lname" value="{{emp.Lname}}" placeholder="Last Name..." class="form-control">
+                    <input type="email" name="email" value="{{emp.Email_id}}" placeholder="Email..." class="form-control">
+                    <input type="text" name="contact" value="{{emp.Contact}}" placeholder="Contact..." class="form-control">
+                    <input type="text" name="salary" value="{{emp.Salary}}" placeholder="Salary..." class="form-control">
+                    <input type="text" name="location" value="{{emp.Location}}" placeholder="Location..." class="form-control">
+
+                    <center>
+                        <input type="submit" value="Update" class="btn btn-lg btn-outline-success">
+                        <input type="reset" value="Clear" class="btn btn-lg btn-outline-danger">
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
